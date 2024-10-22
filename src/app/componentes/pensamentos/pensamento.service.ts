@@ -16,6 +16,21 @@ export class PensamentoService {
   }
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
+    if (pensamento.id) {
+      pensamento.id = pensamento.id.toString();
+    }
     return this.http.post<Pensamento>(this.API, pensamento);
+  }
+
+  editar(pensamento: Pensamento): Observable<Pensamento> {
+    return this.http.put<Pensamento>(`${this.API}/${pensamento.id}`, pensamento);
+  }
+
+  deletar(id: number): Observable<Pensamento> {
+    return this.http.delete<Pensamento>(`${this.API}/${id}`);
+  }
+
+  buscarPorId(id: number): Observable<Pensamento> {
+    return this.http.get<Pensamento>(`${this.API}/${id.toString()}`);
   }
 }
