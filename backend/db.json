@@ -1,19 +1,13 @@
 {
   "pensamentos": [
     {
-      "id": 1,
+      "id": "1",
       "conteudo": "A vida é um eco, se você não está gostando do que está recebendo, observe o que está emitindo.",
       "autoria": "Autor desconhecido",
       "modelo": "modelo1"
     },
     {
-      "id": 2,
-      "conteudo": "Eu quero tchu, eu quero tcha, eu quero tchu tcha tcha tchu tchu tcha...",
-      "autoria": "Autor desconhecido",
-      "modelo": "modelo2"
-    },
-    {
-      "id": 3,
+      "id": "3",
       "conteudo": "Voar voar subir subir ir por onde for... ir além do infinito...",
       "autoria": "Autor desconhecido",
       "modelo": "modelo3"
