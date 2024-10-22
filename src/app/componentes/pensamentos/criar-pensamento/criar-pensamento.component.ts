@@ -47,4 +47,8 @@ export class CriarPensamentoComponent {
     let id = Math.floor(Math.random() * 1000);
     return id;
   }
+
+  habilitarBotao(): string{
+    return this.formulario.valid ? "botao" : "botao__desabilitado";
+  }
 }
