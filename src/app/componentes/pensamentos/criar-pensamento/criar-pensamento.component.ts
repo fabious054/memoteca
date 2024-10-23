@@ -21,6 +21,7 @@ export class CriarPensamentoComponent {
 
   ngOnInit(){
     this.formulario = this.formBuilder.group({
+      id: [this.idGenerator(),[Validators.required]],
       conteudo: ["",Validators.compose([Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
       autoria: ["",Validators.compose([Validators.required,Validators.minLength(3)])],
       modelo: ["modelo1",[Validators.required]]
@@ -29,7 +30,6 @@ export class CriarPensamentoComponent {
 
   criarPensamento(){
     console.log(this.formulario);
-
     if(this.formulario.valid){
       this.service.criar(this.formulario.value).subscribe(()=>{
         this.router.navigate(['/listarPensamento']);
@@ -45,7 +45,7 @@ export class CriarPensamentoComponent {
 
   idGenerator(){
     let id = Math.floor(Math.random() * 1000);
-    return id;
+    return id.toString();
   }
 
   habilitarBotao(): string{
