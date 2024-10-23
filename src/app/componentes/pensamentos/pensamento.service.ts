@@ -8,13 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class PensamentoService {
 
-  private readonly API = "http://localhost:3001/pensamentos";
+  private readonly API = "http://localhost:3000/pensamentos";
   constructor(private http: HttpClient) { }
 
-  listar(limit: number): Observable<Pensamento[]> {
+  listar(limit: number,filtro:string): Observable<Pensamento[]> {
     const qtdItens = limit;
     const pagina = 1;
     let params = new HttpParams().set('_page', pagina).set('_limit', qtdItens);
+
+    if (filtro.trim()) {
+      params = params.set('conteudo', filtro);
+    }
 
 
     return this.http.get<Pensamento[]>(this.API, { params });
